@@ -11,8 +11,6 @@ chosen_word = random.choice(hangman_words.word_list)
 word_length = len(chosen_word)
 
 display = []
-#Testing code
-print(f'Pssst, the solution is {chosen_word}.')
 
 #Initialize display
 for _ in range (word_length):
@@ -24,7 +22,7 @@ while not end_of_game:
     #Check if guess is already in display
     if guess in display:
         print("You've already guessed " + guess)
-        
+
     #Check if guessed letter is in chosen_word
     if guess not in chosen_word:
         print("You guessed " + guess + ", that's not in the word. You lose a life.")
