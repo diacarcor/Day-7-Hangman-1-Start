@@ -2,6 +2,8 @@ import random
 import hangman_words
 import hangman_art
 
+from replit import clear
+
 print(hangman_art.logo)
 
 end_of_game = False
@@ -10,22 +12,21 @@ lives = 6
 chosen_word = random.choice(hangman_words.word_list)
 word_length = len(chosen_word)
 
-display = []
-
 #Initialize display
+display = []
 for _ in range (word_length):
     display.append("_")
 
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
-
+    clear()
     #Check if guess is already in display
     if guess in display:
-        print("You've already guessed " + guess)
+        print("You've already guessed " + guess + "\n")
 
     #Check if guessed letter is in chosen_word
     if guess not in chosen_word:
-        print("You guessed " + guess + ", that's not in the word. You lose a life.")
+        print("You guessed " + guess + ", that's not in the word. You lose a life.\n")
         #Reduce numbers of lives
         lives -= 1
     else:
